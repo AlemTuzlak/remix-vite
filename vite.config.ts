@@ -1,7 +1,12 @@
 import { unstable_vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { remixDevTools } from "remix-development-tools/vite";
 
 export default defineConfig({
-  plugins: [remix(), tsconfigPaths()],
+  plugins: [remixDevTools(), remix(), tsconfigPaths()],
+  server: {
+    port: 3000,
+    open: true,
+  },
 });
